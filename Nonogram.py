@@ -36,7 +36,7 @@ def random_move(state, affected_rows, affected_columns):
             return new_state
 # initial_temperature:its for the probability of accepting a worse solution at the beginning of the search
 # cooling_rate:its for the probability of accepting a worse solution at the end of the search 
-def simulated_annealing(nonogramX, nonogramY, max_iterations=7000000, initial_temperature=10.0, cooling_rate=0.999):
+def simulated_annealing(nonogramX, nonogramY, max_iterations=3000000, initial_temperature=5.0, cooling_rate=0.999):
     n = len(nonogramX)
     current_state = initial_state(n)
     current_score, affected_rows, affected_columns = objective_function(current_state, nonogramX, nonogramY)
@@ -71,8 +71,9 @@ def print_nonogram(nonogram):
         print(' '.join(row))
 
 if __name__ == "__main__":
-    nonogramY = [[5,1],[4,2],[4,2],[4,1],[3],[4],[5,3],[4],[5],[1,3]]
-    nonogramX = [[9],[9],[9],[4,5],[1,2],[1,1],[2],[4,1],[1],[1]]
+    nonogramY = [[1],[2],[3],[4],[5]]
+    nonogramX = [[1],[2],[3],[4],[5]]
     nonogram = simulated_annealing(nonogramY, nonogramX)
     print("Nonogram generated:")
     print_nonogram(nonogram)
+ 
